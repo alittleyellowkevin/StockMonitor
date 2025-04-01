@@ -10,7 +10,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/stock_monitor?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
-    password: root
+    password: 744669
   
   # Redis配置
   redis:
@@ -54,7 +54,7 @@ mybatis:
 xxl:
   job:
     admin:
-      addresses: http://localhost:8080/xxl-job-admin
+      addresses: http://localhost:8090/xxl-job-admin
     executor:
       appname: stock-monitor-executor
       ip: 
@@ -66,5 +66,5 @@ xxl:
 # 腾讯股票API配置
 tencent:
   api:
-    base-url: http://qt.gtimg.cn
-    timeout: 5000 
+    secretId: ${API_SECRET_ID:}  # 从环境变量获取，如果没有则使用默认值
+    secretKey: ${API_SECRET_KEY:}  # 从环境变量获取，如果没有则使用默认值

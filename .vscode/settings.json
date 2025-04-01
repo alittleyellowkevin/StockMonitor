@@ -1,38 +1,9 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "java.compile.nullAnalysis.mode": "automatic",
-    "java.format.settings.url": "eclipse-formatter.xml",
-    "java.format.onType.enabled": true,
-    "java.completion.importOrder": [
-        "java",
-        "javax",
-        "org",
-        "com"
-    ],
-    "java.silentNotification": true,
-    "java.server.launchMode": "Standard",
-    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m",
-    "java.home": "/Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home",
     "java.project.sourcePaths": [
-        "src/main/java"
+        "."
     ],
-    "java.project.outputPath": "target/classes",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ],
-    "java.errors.incompleteClasspath.severity": "warning",
-    "java.format.settings.profile": "GoogleStyle",
-    "java.completion.enabled": true,
-    "java.signatureHelp.enabled": true,
-    "java.hints.enabled": true,
-    "java.cleanup.actionsOnSave": [
-        "addOverride",
-        "addDeprecated",
-        "stringConcatToTextBlock",
-        "invertEquals",
-        "addFinalModifier",
-        "instanceofPatternMatch",
-        "lambdaExpression",
-        "switchExpression"
-    ]
+    "java.project.outputPath": "out/production/Base",
+    "java.project.referencedLibraries": [],
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

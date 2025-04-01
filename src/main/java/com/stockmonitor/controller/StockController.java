@@ -16,7 +16,7 @@ public class StockController {
 
     @GetMapping("/{code}")
     public Stock getStock(@PathVariable String code) {
-        return stockService.getStockByCode(code);
+            return stockService.getStockByCode(code);
     }
 
     @GetMapping

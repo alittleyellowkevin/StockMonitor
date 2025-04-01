@@ -5,6 +5,8 @@ import java.util.List;
 
 public interface StockService {
     Stock getStockByCode(String code);
+
     List<Stock> getAllStocks();
+
     void updateStockInfo(Stock stock);
-} 
+}

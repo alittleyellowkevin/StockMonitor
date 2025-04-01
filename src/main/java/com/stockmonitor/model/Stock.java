@@ -22,4 +22,116 @@ public class Stock {
     private BigDecimal macd; // MACD指标
     private BigDecimal kdj; // KDJ指标
     private BigDecimal rsi; // RSI指标
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public BigDecimal getChange() {
+        return change;
+    }
+
+    public void setChange(BigDecimal change) {
+        this.change = change;
+    }
+
+    public Long getVolume() {
+        return volume;
+    }
+
+    public void setVolume(Long volume) {
+        this.volume = volume;
+    }
+
+    public BigDecimal getOpen() {
+        return open;
+    }
+
+    public void setOpen(BigDecimal open) {
+        this.open = open;
+    }
+
+    public BigDecimal getHigh() {
+        return high;
+    }
+
+    public void setHigh(BigDecimal high) {
+        this.high = high;
+    }
+
+    public BigDecimal getLow() {
+        return low;
+    }
+
+    public void setLow(BigDecimal low) {
+        this.low = low;
+    }
+
+    public BigDecimal getClose() {
+        return close;
+    }
+
+    public void setClose(BigDecimal close) {
+        this.close = close;
+    }
+
+    public LocalDateTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(LocalDateTime updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public BigDecimal getMacd() {
+        return macd;
+    }
+
+    public void setMacd(BigDecimal macd) {
+        this.macd = macd;
+    }
+
+    public BigDecimal getKdj() {
+        return kdj;
+    }
+
+    public void setKdj(BigDecimal kdj) {
+        this.kdj = kdj;
+    }
+
+    public BigDecimal getRsi() {
+        return rsi;
+    }
+
+    public void setRsi(BigDecimal rsi) {
+        this.rsi = rsi;
+    }
 }

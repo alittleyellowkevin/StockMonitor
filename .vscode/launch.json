@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-StockMonitorApplication<stock-monitor>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.stockmonitor.StockMonitorApplication",
+            "projectName": "stock-monitor",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
