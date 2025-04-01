@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票监控系统</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/stock-heat.css}">
+</head>
+
+<body>
+    <div class="container-fluid mt-4">
+        <h1 class="text-center mb-4">股票监控系统</h1>
+
+        <!-- 导航标签 -->
+        <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="heat-tab" data-toggle="tab" href="#heat" role="tab" aria-controls="heat"
+                    aria-selected="true">热度排行</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="alert-tab" data-toggle="tab" href="#alert" role="tab" aria-controls="alert"
+                    aria-selected="false">股票提醒</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info"
+                    aria-selected="false">基本信息</a>
+            </li>
+        </ul>
+
+        <!-- 标签内容 -->
+        <div class="tab-content" id="myTabContent">
+            <!-- 热度排行标签 -->
+            <div class="tab-pane fade show active" id="heat" role="tabpanel" aria-labelledby="heat-tab">
+                <div class="row mb-3">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <select id="marketSelect" class="form-control">
+                                            <option value="hs_a">沪深A股</option>
+                                            <option value="hs_b">沪深B股</option>
+                                            <option value="kc_a">科创板</option>
+                                            <option value="zxb">中小板</option>
+                                            <option value="cyb">创业板</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select id="limitSelect" class="form-control">
+                                            <option value="10">10条</option>
+                                            <option value="20">20条</option>
+                                            <option value="30">30条</option>
+                                            <option value="50">50条</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button id="refreshBtn" class="btn btn-light btn-block">刷新数据</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 四个图表卡片 -->
+                <div class="row mb-4">
+                    <!-- 涨幅排行 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-danger text-white">
+                                <h5 class="mb-0">涨幅排行</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="upChart" style="height: 300px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 跌幅排行 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0">跌幅排行</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="downChart" style="height: 300px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 成交量排行 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">成交量排行</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="volumeChart" style="height: 300px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 成交额排行 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header bg-warning text-white">
+                                <h5 class="mb-0">成交额排行</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="valueChart" style="height: 300px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 股票排行详细表格 -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div
+                                class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">股票排行详情</h5>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-light active" data-sort="changeRate"
+                                        data-asc="0">涨幅榜</button>
+                                    <button type="button" class="btn btn-light" data-sort="changeRate"
+                                        data-asc="1">跌幅榜</button>
+                                    <button type="button" class="btn btn-light" data-sort="volume"
+                                        data-asc="0">成交量榜</button>
+                                    <button type="button" class="btn btn-light" data-sort="value"
+                                        data-asc="0">成交额榜</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>排名</th>
+                                                <th>股票代码</th>
+                                                <th>股票名称</th>
+                                                <th>当前价格</th>
+                                                <th>涨跌幅</th>
+                                                <th>成交量</th>
+                                                <th>成交额</th>
+                                                <th>最高价</th>
+                                                <th>最低价</th>
+                                                <th>更新时间</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="stockTableBody">
+                                            <!-- 表格内容将由JavaScript动态生成 -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6 offset-md-3">
+                        <nav>
+                            <ul class="pagination justify-content-center" id="pagination">
+                                <!-- 分页内容将由JavaScript动态生成 -->
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 股票提醒标签 -->
+            <div class="tab-pane fade" id="alert" role="tabpanel" aria-labelledby="alert-tab">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">设置股票提醒</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="alertForm">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="stockSymbol">股票代码</label>
+                                            <input type="text" class="form-control" id="stockSymbol"
+                                                placeholder="例如: sh600000">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="stockName">股票名称</label>
+                                            <input type="text" class="form-control" id="stockName" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="priceType">提醒类型</label>
+                                            <select id="priceType" class="form-control">
+                                                <option value="above">价格高于</option>
+                                                <option value="below">价格低于</option>
+                                                <option value="change">涨跌幅超过</option>
+                                                <option value="volume">成交量超过</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="priceValue">提醒阈值</label>
+                                            <input type="number" class="form-control" id="priceValue" step="0.01">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="notifyType">通知方式</label>
+                                            <select id="notifyType" class="form-control">
+                                                <option value="email">邮件通知</option>
+                                                <option value="sms">短信通知</option>
+                                                <option value="app">应用内通知</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="contactInfo">联系信息</label>
+                                            <input type="text" class="form-control" id="contactInfo"
+                                                placeholder="邮箱/手机号">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">添加提醒</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card mt-4">
+                            <div class="card-header bg-info text-white">
+                                <h5 class="mb-0">已设置的提醒</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>股票</th>
+                                                <th>提醒类型</th>
+                                                <th>阈值</th>
+                                                <th>通知方式</th>
+                                                <th>状态</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="alertTableBody">
+                                            <!-- 表格内容将由JavaScript动态生成 -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 基本信息标签 -->
+            <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">股票基本信息查询</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row align-items-center mb-4">
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" id="stockSearchSymbol"
+                                            placeholder="输入股票代码，例如: sh600000">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button id="searchStockBtn" class="btn btn-primary">查询</button>
+                                    </div>
+                                </div>
+
+                                <div class="stock-info-container">
+                                    <div id="stockInfoLoading" class="text-center d-none">
+                                        <div class="spinner-border text-primary" role="status">
+                                            <span class="sr-only">加载中...</span>
+                                        </div>
+                                    </div>
+                                    <div id="stockInfoContent" class="d-none">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <div class="card-header bg-info text-white">
+                                                        <h5 class="mb-0">基本资料</h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <table class="table table-bordered">
+                                                            <tbody id="stockBasicInfo">
+                                                                <!-- 基本信息将由JavaScript动态生成 -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <div class="card-header bg-info text-white">
+                                                        <h5 class="mb-0">市场表现</h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <table class="table table-bordered">
+                                                            <tbody id="stockMarketInfo">
+                                                                <!-- 市场表现将由JavaScript动态生成 -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-4">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header bg-info text-white">
+                                                        <h5 class="mb-0">K线图</h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div id="klineChart" style="height: 400px;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="stockInfoError" class="alert alert-danger d-none" role="alert">
+                                        <!-- 错误信息将由JavaScript动态生成 -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+    <script th:src="@{/js/stock-heat-new.js}"></script>
+    <script th:src="@{/js/stock-alert.js}"></script>
+    <script th:src="@{/js/stock-info.js}"></script>
+</body>
+
+</html>
