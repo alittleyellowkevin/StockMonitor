@@ -1,0 +1,2026 @@
+2025-04-15 00:00:37,872 INFO [xxl-job, EmbedServer bizThreadPool-386298723] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@5e66733b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 00:00:46,624 INFO [xxl-job, JobThread-4-1744646437872] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 10:07:18,114 INFO [xxl-job, JobThread-4-1744646437872] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 10:07:23,030 INFO [xxl-job, JobThread-4-1744646437872] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 10:07:23,039 INFO [xxl-job, JobThread-4-1744646437872] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 10:07:23,048 INFO [xxl-job, JobThread-4-1744646437872] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744682842945
+2025-04-15 10:15:35,952 INFO [xxl-job, JobThread-4-1744646437872] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 10:23:26,000 INFO [xxl-job, JobThread-4-1744646437872] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 42] StockPullJobHandler poll records: 0
+2025-04-15 10:23:37,787 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 47965 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 10:23:37,790 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 10:23:38,319 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 10:23:38,321 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 10:23:38,337 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2025-04-15 10:23:39,113 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 10:23:39,118 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 10:23:39,120 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 10:23:39,120 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 10:23:39,217 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 10:23:39,218 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 1256 ms
+2025-04-15 10:23:39,278 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 10:23:39,409 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 10:23:40,370 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@4d71ec5b[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 10:23:40,371 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@2484c868[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 10:23:40,371 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@19d13d04[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 10:23:40,410 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 10:23:40,429 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 10:23:40,444 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 2.909 seconds (JVM running for 3.471)
+2025-04-15 10:23:40,468 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 10:24:03,228 INFO [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-15 10:24:03,229 INFO [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2025-04-15 10:24:03,231 INFO [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 2 ms
+2025-04-15 10:24:09,791 INFO [http-nio-8080-exec-1] o.a.k.c.producer.ProducerConfig [AbstractConfig.java : 376] ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2025-04-15 10:24:09,814 INFO [http-nio-8080-exec-1] o.a.k.clients.producer.KafkaProducer [KafkaProducer.java : 572] [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-04-15 10:24:09,843 INFO [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 10:24:09,843 INFO [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 10:24:09,843 INFO [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744683849841
+2025-04-15 10:24:10,021 INFO [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Producer clientId=producer-1] Resetting the last seen epoch of partition health_check_topic-0 to 0 since the associated topicId changed from null to j4t9u_KOQPKP5bHATnfwHQ
+2025-04-15 10:24:10,022 INFO [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Producer clientId=producer-1] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 10:24:10,023 INFO [kafka-producer-network-thread | producer-1] o.a.k.c.p.i.TransactionManager [TransactionManager.java : 554] [Producer clientId=producer-1] ProducerId set to 10 with epoch 0
+2025-04-15 10:24:15,829 INFO [xxl-job, EmbedServer bizThreadPool-1209450650] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@19d13d04[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 10:25:31,728 INFO [xxl-job, JobThread-4-1744683855829] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 10:25:32,438 INFO [xxl-job, JobThread-4-1744683855829] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 10:25:34,431 INFO [xxl-job, JobThread-4-1744683855829] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 10:25:34,439 INFO [xxl-job, JobThread-4-1744683855829] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 10:25:34,447 INFO [xxl-job, JobThread-4-1744683855829] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744683934429
+2025-04-15 10:25:35,260 INFO [xxl-job, JobThread-4-1744683855829] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 10:25:36,279 INFO [xxl-job, JobThread-4-1744683855829] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 10:25:36,293 INFO [xxl-job, JobThread-4-1744683855829] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 10:25:36,756 INFO [xxl-job, JobThread-4-1744683855829] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 10:25:36,790 INFO [xxl-job, JobThread-4-1744683855829] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 10:33:10,069 INFO [kafka-producer-network-thread | producer-1] o.apache.kafka.clients.NetworkClient [NetworkClient.java : 935] [Producer clientId=producer-1] Node -1 disconnected.
+2025-04-15 10:49:11,595 INFO [xxl-job, JobThread-4-1744683855829] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 42] StockPullJobHandler poll records: 0
+2025-04-15 10:54:46,990 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 65835 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 10:54:46,991 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 10:54:47,524 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 10:54:47,526 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 10:54:47,540 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-15 10:54:47,985 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 10:54:47,989 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 10:54:47,991 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 10:54:47,991 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 10:54:48,073 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 10:54:48,074 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 899 ms
+2025-04-15 10:54:48,120 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 10:54:48,225 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 10:54:49,197 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@ce0bbd5[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 10:54:49,197 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@16361e61[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 10:54:49,197 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@51566ce0[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 10:54:49,221 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 10:54:49,244 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 10:54:49,258 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 2.528 seconds (JVM running for 3.138)
+2025-04-15 10:54:49,271 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 10:54:57,177 INFO [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-15 10:54:57,178 INFO [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2025-04-15 10:54:57,180 INFO [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 2 ms
+2025-04-15 10:54:57,491 INFO [http-nio-8080-exec-1] o.a.k.c.producer.ProducerConfig [AbstractConfig.java : 376] ProducerConfig values: 
+	acks = -1
+	batch.size = 16384
+	bootstrap.servers = [localhost:9092]
+	buffer.memory = 33554432
+	client.dns.lookup = use_all_dns_ips
+	client.id = producer-1
+	compression.type = none
+	connections.max.idle.ms = 540000
+	delivery.timeout.ms = 120000
+	enable.idempotence = true
+	interceptor.classes = []
+	key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+	linger.ms = 0
+	max.block.ms = 60000
+	max.in.flight.requests.per.connection = 5
+	max.request.size = 1048576
+	metadata.max.age.ms = 300000
+	metadata.max.idle.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+	receive.buffer.bytes = 32768
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	transaction.timeout.ms = 60000
+	transactional.id = null
+	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
+
+2025-04-15 10:54:57,512 INFO [http-nio-8080-exec-1] o.a.k.clients.producer.KafkaProducer [KafkaProducer.java : 572] [Producer clientId=producer-1] Instantiated an idempotent producer.
+2025-04-15 10:54:57,536 INFO [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 10:54:57,536 INFO [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 10:54:57,536 INFO [http-nio-8080-exec-1] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744685697534
+2025-04-15 10:54:57,721 INFO [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Producer clientId=producer-1] Resetting the last seen epoch of partition health_check_topic-0 to 0 since the associated topicId changed from null to j4t9u_KOQPKP5bHATnfwHQ
+2025-04-15 10:54:57,722 INFO [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Producer clientId=producer-1] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 10:54:57,722 INFO [kafka-producer-network-thread | producer-1] o.a.k.c.p.i.TransactionManager [TransactionManager.java : 554] [Producer clientId=producer-1] ProducerId set to 11 with epoch 0
+2025-04-15 10:55:29,443 INFO [xxl-job, EmbedServer bizThreadPool-2006297820] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@51566ce0[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 10:55:31,659 INFO [xxl-job, JobThread-4-1744685729443] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 10:55:32,192 INFO [xxl-job, JobThread-4-1744685729443] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 10:55:34,163 INFO [xxl-job, JobThread-4-1744685729443] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 10:55:34,171 INFO [xxl-job, JobThread-4-1744685729443] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 10:55:34,180 INFO [xxl-job, JobThread-4-1744685729443] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744685734161
+2025-04-15 10:55:34,899 INFO [xxl-job, JobThread-4-1744685729443] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 10:55:36,109 INFO [xxl-job, JobThread-4-1744685729443] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 10:55:36,121 INFO [xxl-job, JobThread-4-1744685729443] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 10:55:36,140 INFO [xxl-job, JobThread-4-1744685729443] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 10:55:36,171 INFO [xxl-job, JobThread-4-1744685729443] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 10:55:36,741 INFO [xxl-job, JobThread-4-1744685729443] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 10:55:36,755 INFO [xxl-job, JobThread-4-1744685729443] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:00:03,623 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 68667 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:00:03,624 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:00:04,113 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:00:04,115 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:00:04,129 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:00:04,557 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:00:04,562 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:00:04,563 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:00:04,563 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:00:04,646 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:00:04,647 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 861 ms
+2025-04-15 11:00:04,693 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:00:04,794 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:00:05,732 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@4d71ec5b[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:00:05,733 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@2484c868[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:00:05,733 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@19d13d04[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:00:05,761 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:00:05,785 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:00:05,796 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 2.417 seconds (JVM running for 3.207)
+2025-04-15 11:00:05,815 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:02:11,546 INFO [xxl-job, EmbedServer bizThreadPool-2134170260] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@19d13d04[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:02:22,232 INFO [xxl-job, JobThread-4-1744686131546] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:02:27,199 INFO [xxl-job, JobThread-4-1744686131546] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:02:31,654 INFO [xxl-job, JobThread-4-1744686131546] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:02:31,662 INFO [xxl-job, JobThread-4-1744686131546] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:02:31,671 INFO [xxl-job, JobThread-4-1744686131546] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744686151571
+2025-04-15 11:03:18,931 INFO [xxl-job, JobThread-4-1744686131546] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:11:33,184 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 75301 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:11:33,186 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:11:33,718 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:11:33,720 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:11:33,736 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:11:34,189 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:11:34,194 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:11:34,194 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:11:34,195 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:11:34,288 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:11:34,289 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 913 ms
+2025-04-15 11:11:34,340 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:11:34,447 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:11:35,483 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@29d33f1[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:11:35,484 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@4fcedf83[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:11:35,484 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@16c9f7f0[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:11:35,516 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:11:35,541 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:11:35,558 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 2.629 seconds (JVM running for 3.012)
+2025-04-15 11:11:35,576 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:11:49,532 INFO [xxl-job, EmbedServer bizThreadPool-1383226076] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@16c9f7f0[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:11:53,116 INFO [xxl-job, JobThread-4-1744686709532] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:11:54,409 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:11:58,891 INFO [xxl-job, JobThread-4-1744686709532] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:11:58,900 INFO [xxl-job, JobThread-4-1744686709532] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:11:58,908 INFO [xxl-job, JobThread-4-1744686709532] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744686718808
+2025-04-15 11:11:59,593 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:12:14,817 INFO [xxl-job, JobThread-4-1744686709532] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 11:12:14,949 INFO [xxl-job, JobThread-4-1744686709532] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 11:12:14,985 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 11:12:15,032 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:12:15,581 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 11:12:15,596 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:12:15,627 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 595] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-stock-monitor-group-1-8916f57e-18a6-4ab9-9744-65c3ab324ead', protocol='range'}
+2025-04-15 11:12:15,730 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 659] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Finished assignment for group at generation 1: {consumer-stock-monitor-group-1-8916f57e-18a6-4ab9-9744-65c3ab324ead=Assignment(partitions=[stock_ranking-0])}
+2025-04-15 11:12:15,883 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 761] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-stock-monitor-group-1-8916f57e-18a6-4ab9-9744-65c3ab324ead', protocol='range'}
+2025-04-15 11:12:15,899 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 280] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Notifying assignor about the new Assignment(partitions=[stock_ranking-0])
+2025-04-15 11:12:16,033 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 292] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Adding newly assigned partitions: stock_ranking-0
+2025-04-15 11:12:16,303 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 1405] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Found no committed offset for partition stock_ranking-0
+2025-04-15 11:12:16,753 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.SubscriptionState [SubscriptionState.java : 398] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting offset for partition stock_ranking-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.124.41:9092 (id: 0 rack: null)], epoch=0}}.
+2025-04-15 11:12:57,942 INFO [xxl-job, JobThread-4-1744686709532] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 42] StockPullJobHandler poll records: 7
+2025-04-15 11:13:34,764 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 311] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Revoke previously assigned partitions stock_ranking-0
+2025-04-15 11:13:34,775 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1060] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Member consumer-stock-monitor-group-1-8916f57e-18a6-4ab9-9744-65c3ab324ead sending LeaveGroup request to coordinator 192.168.124.41:9092 (id: 2147483647 rack: null) due to the consumer is being closed
+2025-04-15 11:13:34,796 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 972] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting generation due to: consumer pro-actively leaving the group
+2025-04-15 11:13:34,811 INFO [xxl-job, JobThread-4-1744686709532] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-15 11:13:34,875 INFO [xxl-job, JobThread-4-1744686709532] o.a.kafka.common.metrics.Metrics [Metrics.java : 659] Metrics scheduler closed
+2025-04-15 11:13:34,883 INFO [xxl-job, JobThread-4-1744686709532] o.a.kafka.common.metrics.Metrics [Metrics.java : 663] Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-15 11:13:34,901 INFO [xxl-job, JobThread-4-1744686709532] o.a.kafka.common.metrics.Metrics [Metrics.java : 669] Metrics reporters closed
+2025-04-15 11:13:35,492 INFO [xxl-job, JobThread-4-1744686709532] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 83] App info kafka.consumer for consumer-stock-monitor-group-1 unregistered
+2025-04-15 11:22:40,090 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 81637 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:22:40,091 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:22:40,640 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:22:40,642 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:22:40,656 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:22:41,100 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:22:41,104 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:22:41,105 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:22:41,105 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:22:41,188 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:22:41,189 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 910 ms
+2025-04-15 11:22:41,241 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:22:41,350 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:22:42,311 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@20e3b165[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:22:42,313 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@19d13d04[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:22:42,313 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@30d5fc1b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:22:42,340 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:22:42,359 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:22:42,370 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 2.549 seconds (JVM running for 3.175)
+2025-04-15 11:22:42,396 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:22:50,452 INFO [xxl-job, EmbedServer bizThreadPool-1546364082] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@30d5fc1b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:22:52,851 INFO [xxl-job, JobThread-4-1744687370452] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:22:54,268 INFO [xxl-job, JobThread-4-1744687370452] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:22:58,743 INFO [xxl-job, JobThread-4-1744687370452] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:22:58,751 INFO [xxl-job, JobThread-4-1744687370452] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:22:58,760 INFO [xxl-job, JobThread-4-1744687370452] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744687378664
+2025-04-15 11:22:59,372 INFO [xxl-job, JobThread-4-1744687370452] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:23:17,045 INFO [xxl-job, JobThread-4-1744687370452] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 42] StockPullJobHandler poll records: 0
+2025-04-15 11:23:25,783 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 82088 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:23:25,784 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:23:26,331 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:23:26,333 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:23:26,347 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:23:26,805 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:23:26,810 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:23:26,811 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:23:26,811 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:23:27,235 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:23:27,235 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 1282 ms
+2025-04-15 11:23:27,306 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:23:27,440 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:23:28,668 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@20e3b165[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:23:28,669 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@19d13d04[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:23:28,669 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@30d5fc1b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:23:28,696 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:23:28,721 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:23:28,736 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 3.206 seconds (JVM running for 3.639)
+2025-04-15 11:23:28,761 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:23:55,533 INFO [xxl-job, EmbedServer bizThreadPool-733446488] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@30d5fc1b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:23:58,046 INFO [xxl-job, JobThread-4-1744687435533] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:23:59,482 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:24:03,954 INFO [xxl-job, JobThread-4-1744687435533] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:24:03,963 INFO [xxl-job, JobThread-4-1744687435533] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:24:03,971 INFO [xxl-job, JobThread-4-1744687435533] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744687443877
+2025-04-15 11:24:04,297 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:24:18,799 INFO [xxl-job, JobThread-4-1744687435533] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 11:24:18,924 INFO [xxl-job, JobThread-4-1744687435533] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 11:24:18,961 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 11:24:19,010 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:24:19,550 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 11:24:19,564 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:24:19,597 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 595] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully joined group with generation Generation{generationId=1, memberId='consumer-stock-monitor-group-1-f7a85aeb-bfeb-41b2-a64e-a6311d7afccb', protocol='range'}
+2025-04-15 11:24:19,700 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 659] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Finished assignment for group at generation 1: {consumer-stock-monitor-group-1-f7a85aeb-bfeb-41b2-a64e-a6311d7afccb=Assignment(partitions=[stock_ranking-0])}
+2025-04-15 11:24:19,823 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 761] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully synced group in generation Generation{generationId=1, memberId='consumer-stock-monitor-group-1-f7a85aeb-bfeb-41b2-a64e-a6311d7afccb', protocol='range'}
+2025-04-15 11:24:19,841 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 280] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Notifying assignor about the new Assignment(partitions=[stock_ranking-0])
+2025-04-15 11:24:19,958 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 292] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Adding newly assigned partitions: stock_ranking-0
+2025-04-15 11:24:20,209 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 1405] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Found no committed offset for partition stock_ranking-0
+2025-04-15 11:24:20,655 INFO [xxl-job, JobThread-4-1744687435533] o.a.k.c.c.i.SubscriptionState [SubscriptionState.java : 398] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting offset for partition stock_ranking-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.124.41:9092 (id: 0 rack: null)], epoch=0}}.
+2025-04-15 11:24:38,101 INFO [xxl-job, JobThread-4-1744687435533] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 42] StockPullJobHandler poll records: 11
+2025-04-15 11:24:41,068 INFO [xxl-job, JobThread-4-1744687435533] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 46] StockPullJobHandler poll record: {
+asc:0,
+limit:100,
+market:hs_a,
+page:1,
+sort:vlaue
+}
+2025-04-15 11:29:20,920 INFO [kafka-coordinator-heartbeat-thread | stock-monitor-group] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1060] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Member consumer-stock-monitor-group-1-f7a85aeb-bfeb-41b2-a64e-a6311d7afccb sending LeaveGroup request to coordinator 192.168.124.41:9092 (id: 2147483647 rack: null) due to consumer poll timeout has expired.
+2025-04-15 11:29:20,927 INFO [kafka-coordinator-heartbeat-thread | stock-monitor-group] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 972] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting generation due to: consumer pro-actively leaving the group
+2025-04-15 11:29:20,928 INFO [kafka-coordinator-heartbeat-thread | stock-monitor-group] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-15 11:30:41,778 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 86260 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:30:41,779 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:30:42,370 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:30:42,372 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:30:42,385 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:30:43,098 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:30:43,104 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:30:43,106 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:30:43,106 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:30:43,234 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:30:43,234 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 1269 ms
+2025-04-15 11:30:43,287 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:30:43,404 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:30:44,368 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@20e3b165[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:30:44,369 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@19d13d04[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:30:44,369 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@30d5fc1b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:30:44,399 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:30:44,418 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:30:44,429 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 2.924 seconds (JVM running for 3.324)
+2025-04-15 11:30:44,448 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:30:51,020 INFO [xxl-job, EmbedServer bizThreadPool-1422952680] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@30d5fc1b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:30:51,022 INFO [xxl-job, JobThread-4-1744687851020] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:30:51,057 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:30:51,141 INFO [xxl-job, JobThread-4-1744687851020] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:30:51,141 INFO [xxl-job, JobThread-4-1744687851020] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:30:51,141 INFO [xxl-job, JobThread-4-1744687851020] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744687851140
+2025-04-15 11:30:51,143 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:30:51,321 INFO [xxl-job, JobThread-4-1744687851020] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 11:30:51,322 INFO [xxl-job, JobThread-4-1744687851020] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 11:30:51,323 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 11:30:51,324 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:30:51,337 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 11:30:51,337 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:30:51,345 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 595] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully joined group with generation Generation{generationId=3, memberId='consumer-stock-monitor-group-1-2ac8fa41-cf66-4042-81b0-a3531269569f', protocol='range'}
+2025-04-15 11:30:51,346 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 659] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Finished assignment for group at generation 3: {consumer-stock-monitor-group-1-2ac8fa41-cf66-4042-81b0-a3531269569f=Assignment(partitions=[stock_ranking-0])}
+2025-04-15 11:30:51,353 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 761] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully synced group in generation Generation{generationId=3, memberId='consumer-stock-monitor-group-1-2ac8fa41-cf66-4042-81b0-a3531269569f', protocol='range'}
+2025-04-15 11:30:51,354 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 280] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Notifying assignor about the new Assignment(partitions=[stock_ranking-0])
+2025-04-15 11:30:51,355 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 292] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Adding newly assigned partitions: stock_ranking-0
+2025-04-15 11:30:51,361 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 1405] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Found no committed offset for partition stock_ranking-0
+2025-04-15 11:30:51,368 INFO [xxl-job, JobThread-4-1744687851020] o.a.k.c.c.i.SubscriptionState [SubscriptionState.java : 398] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting offset for partition stock_ranking-0 to position FetchPosition{offset=11, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.124.41:9092 (id: 0 rack: null)], epoch=0}}.
+2025-04-15 11:31:34,966 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 86785 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:31:34,968 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:31:35,520 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:31:35,522 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:31:35,535 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:31:36,143 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:31:36,147 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:31:36,148 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:31:36,148 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:31:36,255 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:31:36,256 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 1104 ms
+2025-04-15 11:31:36,308 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:31:36,417 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:31:38,309 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@51566ce0[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:31:38,311 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@53564a4c[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:31:38,311 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@4866e0a7[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:31:38,340 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:31:38,357 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:31:38,370 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 3.659 seconds (JVM running for 4.161)
+2025-04-15 11:31:38,400 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:32:05,667 INFO [xxl-job, EmbedServer bizThreadPool-1847042309] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@4866e0a7[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:32:08,362 INFO [xxl-job, JobThread-4-1744687925667] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:32:09,738 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:32:14,529 INFO [xxl-job, JobThread-4-1744687925667] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:32:14,538 INFO [xxl-job, JobThread-4-1744687925667] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:32:14,548 INFO [xxl-job, JobThread-4-1744687925667] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744687934447
+2025-04-15 11:32:15,260 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:32:29,199 INFO [xxl-job, JobThread-4-1744687925667] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 11:32:29,330 INFO [xxl-job, JobThread-4-1744687925667] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 11:32:29,365 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 11:32:29,414 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:32:29,937 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 11:32:29,949 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:32:29,979 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 595] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully joined group with generation Generation{generationId=5, memberId='consumer-stock-monitor-group-1-9d59ec61-8bcb-46ba-83cb-136496126336', protocol='range'}
+2025-04-15 11:32:30,080 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 659] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Finished assignment for group at generation 5: {consumer-stock-monitor-group-1-9d59ec61-8bcb-46ba-83cb-136496126336=Assignment(partitions=[stock_ranking-0])}
+2025-04-15 11:32:30,200 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 761] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully synced group in generation Generation{generationId=5, memberId='consumer-stock-monitor-group-1-9d59ec61-8bcb-46ba-83cb-136496126336', protocol='range'}
+2025-04-15 11:32:30,217 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 280] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Notifying assignor about the new Assignment(partitions=[stock_ranking-0])
+2025-04-15 11:32:30,332 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 292] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Adding newly assigned partitions: stock_ranking-0
+2025-04-15 11:32:30,588 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 1405] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Found no committed offset for partition stock_ranking-0
+2025-04-15 11:32:31,032 INFO [xxl-job, JobThread-4-1744687925667] o.a.k.c.c.i.SubscriptionState [SubscriptionState.java : 398] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting offset for partition stock_ranking-0 to position FetchPosition{offset=11, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.124.41:9092 (id: 0 rack: null)], epoch=0}}.
+2025-04-15 11:33:41,600 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 88038 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:33:41,602 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:33:42,210 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:33:42,212 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:33:42,226 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:33:42,677 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:33:42,682 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:33:42,683 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:33:42,683 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:33:42,767 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:33:42,768 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 969 ms
+2025-04-15 11:33:42,809 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:33:42,916 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:33:44,080 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@2c2edbe7[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:33:44,081 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@73fe7483[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:33:44,081 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@11577ab8[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:33:44,112 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:33:44,132 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:33:44,144 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 2.803 seconds (JVM running for 3.351)
+2025-04-15 11:33:44,164 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:33:51,512 INFO [xxl-job, EmbedServer bizThreadPool-1609937870] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@11577ab8[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:33:53,786 INFO [xxl-job, JobThread-4-1744688031512] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:33:55,155 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = latest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:33:59,626 INFO [xxl-job, JobThread-4-1744688031512] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:33:59,634 INFO [xxl-job, JobThread-4-1744688031512] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:33:59,643 INFO [xxl-job, JobThread-4-1744688031512] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744688039547
+2025-04-15 11:34:00,394 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:34:15,527 INFO [xxl-job, JobThread-4-1744688031512] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 11:34:15,656 INFO [xxl-job, JobThread-4-1744688031512] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 11:34:15,692 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 11:34:15,740 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:34:16,287 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 11:34:16,302 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:34:24,275 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 595] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully joined group with generation Generation{generationId=6, memberId='consumer-stock-monitor-group-1-c8a5e696-9a6a-481d-a97e-dfe64c33ca78', protocol='range'}
+2025-04-15 11:34:24,387 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 659] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Finished assignment for group at generation 6: {consumer-stock-monitor-group-1-c8a5e696-9a6a-481d-a97e-dfe64c33ca78=Assignment(partitions=[stock_ranking-0])}
+2025-04-15 11:34:24,520 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 761] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully synced group in generation Generation{generationId=6, memberId='consumer-stock-monitor-group-1-c8a5e696-9a6a-481d-a97e-dfe64c33ca78', protocol='range'}
+2025-04-15 11:34:24,538 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 280] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Notifying assignor about the new Assignment(partitions=[stock_ranking-0])
+2025-04-15 11:34:24,666 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 292] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Adding newly assigned partitions: stock_ranking-0
+2025-04-15 11:34:24,930 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 1405] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Found no committed offset for partition stock_ranking-0
+2025-04-15 11:34:25,291 INFO [xxl-job, JobThread-4-1744688031512] o.a.k.c.c.i.SubscriptionState [SubscriptionState.java : 398] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting offset for partition stock_ranking-0 to position FetchPosition{offset=11, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.124.41:9092 (id: 0 rack: null)], epoch=0}}.
+2025-04-15 11:35:19,044 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 89038 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:35:19,046 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:35:19,749 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:35:19,751 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:35:19,778 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:35:20,651 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:35:20,656 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:35:20,657 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:35:20,657 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:35:20,759 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:35:20,759 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 1478 ms
+2025-04-15 11:35:20,823 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:35:20,938 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:35:22,232 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@6c25123e[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:35:22,233 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@72641613[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:35:22,233 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@4d71ec5b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:35:22,621 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:35:22,681 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:35:22,727 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 3.988 seconds (JVM running for 4.404)
+2025-04-15 11:35:22,829 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:35:53,837 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 89371 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:35:53,838 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:35:54,342 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:35:54,343 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:35:54,356 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:35:54,803 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:35:54,808 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:35:54,810 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:35:54,810 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:35:54,876 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:35:54,876 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 875 ms
+2025-04-15 11:35:54,920 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:35:55,018 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:35:55,935 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@5b430541[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:35:55,935 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@3ba8ef4e[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:35:55,936 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@6d0bcf8c[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:35:55,963 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:35:55,980 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:35:55,994 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 2.383 seconds (JVM running for 2.706)
+2025-04-15 11:35:56,024 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:36:05,701 INFO [xxl-job, EmbedServer bizThreadPool-1701851419] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@6d0bcf8c[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:36:08,508 INFO [xxl-job, JobThread-4-1744688165701] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:36:10,074 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:36:14,553 INFO [xxl-job, JobThread-4-1744688165701] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:36:14,562 INFO [xxl-job, JobThread-4-1744688165701] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:36:14,571 INFO [xxl-job, JobThread-4-1744688165701] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744688174468
+2025-04-15 11:36:15,855 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:36:30,204 INFO [xxl-job, JobThread-4-1744688165701] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 11:36:30,336 INFO [xxl-job, JobThread-4-1744688165701] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 11:36:30,377 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 11:36:30,425 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:36:30,954 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 11:36:30,965 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:36:30,995 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 595] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully joined group with generation Generation{generationId=8, memberId='consumer-stock-monitor-group-1-b75e0765-105c-4242-b556-6a3a3ab5d35e', protocol='range'}
+2025-04-15 11:36:31,096 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 659] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Finished assignment for group at generation 8: {consumer-stock-monitor-group-1-b75e0765-105c-4242-b556-6a3a3ab5d35e=Assignment(partitions=[stock_ranking-0])}
+2025-04-15 11:36:31,219 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 761] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully synced group in generation Generation{generationId=8, memberId='consumer-stock-monitor-group-1-b75e0765-105c-4242-b556-6a3a3ab5d35e', protocol='range'}
+2025-04-15 11:36:31,236 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 280] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Notifying assignor about the new Assignment(partitions=[stock_ranking-0])
+2025-04-15 11:36:31,350 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 292] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Adding newly assigned partitions: stock_ranking-0
+2025-04-15 11:36:31,603 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 1405] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Found no committed offset for partition stock_ranking-0
+2025-04-15 11:36:32,049 INFO [xxl-job, JobThread-4-1744688165701] o.a.k.c.c.i.SubscriptionState [SubscriptionState.java : 398] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting offset for partition stock_ranking-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.124.41:9092 (id: 0 rack: null)], epoch=0}}.
+2025-04-15 11:36:37,369 INFO [xxl-job, JobThread-4-1744688165701] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 42] StockPullJobHandler poll records: 11
+2025-04-15 11:37:10,912 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 90123 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:37:10,914 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:37:11,440 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:37:11,441 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:37:11,455 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:37:11,884 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:37:11,889 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:37:11,890 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:37:11,890 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:37:11,978 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:37:11,979 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 888 ms
+2025-04-15 11:37:12,031 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:37:12,156 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:37:13,118 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@5e66733b[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:37:13,119 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@20e3b165[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:37:13,120 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@34d3bfca[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:37:13,148 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:37:13,163 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:37:13,175 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 2.509 seconds (JVM running for 2.89)
+2025-04-15 11:37:13,199 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:37:20,745 INFO [xxl-job, EmbedServer bizThreadPool-355006493] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@34d3bfca[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:37:22,573 INFO [xxl-job, JobThread-4-1744688240744] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:37:23,901 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:37:28,354 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:37:28,362 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:37:28,371 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744688248270
+2025-04-15 11:37:29,019 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:37:42,867 INFO [xxl-job, JobThread-4-1744688240744] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 11:37:42,994 INFO [xxl-job, JobThread-4-1744688240744] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 11:37:43,029 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 11:37:43,076 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:37:43,611 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 11:37:43,622 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:37:52,188 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 595] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully joined group with generation Generation{generationId=9, memberId='consumer-stock-monitor-group-1-33cac8a7-84eb-46c9-8c71-dfc9a452222b', protocol='range'}
+2025-04-15 11:37:52,307 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 659] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Finished assignment for group at generation 9: {consumer-stock-monitor-group-1-33cac8a7-84eb-46c9-8c71-dfc9a452222b=Assignment(partitions=[stock_ranking-0])}
+2025-04-15 11:37:52,426 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 761] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully synced group in generation Generation{generationId=9, memberId='consumer-stock-monitor-group-1-33cac8a7-84eb-46c9-8c71-dfc9a452222b', protocol='range'}
+2025-04-15 11:37:52,442 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 280] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Notifying assignor about the new Assignment(partitions=[stock_ranking-0])
+2025-04-15 11:37:52,555 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 292] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Adding newly assigned partitions: stock_ranking-0
+2025-04-15 11:37:52,804 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 1405] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Found no committed offset for partition stock_ranking-0
+2025-04-15 11:37:53,245 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.SubscriptionState [SubscriptionState.java : 398] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting offset for partition stock_ranking-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[192.168.124.41:9092 (id: 0 rack: null)], epoch=0}}.
+2025-04-15 11:37:54,915 INFO [xxl-job, JobThread-4-1744688240744] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 42] StockPullJobHandler poll records: 11
+2025-04-15 11:38:03,281 INFO [xxl-job, JobThread-4-1744688240744] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 46] StockPullJobHandler poll record: {
+asc:0,
+limit:100,
+market:hs_a,
+page:1,
+sort:vlaue
+}
+2025-04-15 11:38:18,602 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 311] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Revoke previously assigned partitions stock_ranking-0
+2025-04-15 11:38:18,602 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1060] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Member consumer-stock-monitor-group-1-33cac8a7-84eb-46c9-8c71-dfc9a452222b sending LeaveGroup request to coordinator 192.168.124.41:9092 (id: 2147483647 rack: null) due to the consumer is being closed
+2025-04-15 11:38:18,603 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 972] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting generation due to: consumer pro-actively leaving the group
+2025-04-15 11:38:18,603 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-15 11:38:18,612 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.metrics.Metrics [Metrics.java : 659] Metrics scheduler closed
+2025-04-15 11:38:18,612 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.metrics.Metrics [Metrics.java : 663] Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2025-04-15 11:38:18,612 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.metrics.Metrics [Metrics.java : 669] Metrics reporters closed
+2025-04-15 11:38:18,618 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 83] App info kafka.consumer for consumer-stock-monitor-group-1 unregistered
+2025-04-15 11:38:26,639 INFO [xxl-job, JobThread-4-1744688240744] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:38:27,032 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-2
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:38:27,843 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:38:27,851 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:38:27,859 INFO [xxl-job, JobThread-4-1744688240744] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744688307841
+2025-04-15 11:38:29,253 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:38:30,782 INFO [xxl-job, JobThread-4-1744688240744] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 11:38:30,795 INFO [xxl-job, JobThread-4-1744688240744] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 11:38:30,812 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 11:38:30,826 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:38:31,037 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 11:38:31,047 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:38:31,075 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 595] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Successfully joined group with generation Generation{generationId=11, memberId='consumer-stock-monitor-group-2-64178525-51a6-442f-bd75-ba060ef815c6', protocol='range'}
+2025-04-15 11:38:31,089 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 659] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Finished assignment for group at generation 11: {consumer-stock-monitor-group-2-64178525-51a6-442f-bd75-ba060ef815c6=Assignment(partitions=[stock_ranking-0])}
+2025-04-15 11:38:31,113 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 761] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Successfully synced group in generation Generation{generationId=11, memberId='consumer-stock-monitor-group-2-64178525-51a6-442f-bd75-ba060ef815c6', protocol='range'}
+2025-04-15 11:38:31,129 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 280] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Notifying assignor about the new Assignment(partitions=[stock_ranking-0])
+2025-04-15 11:38:31,139 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 292] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Adding newly assigned partitions: stock_ranking-0
+2025-04-15 11:38:31,199 INFO [xxl-job, JobThread-4-1744688240744] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 851] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Setting offset for partition stock_ranking-0 to the committed offset FetchPosition{offset=11, offsetEpoch=Optional[0], currentLeader=LeaderAndEpoch{leader=Optional[192.168.124.41:9092 (id: 0 rack: null)], epoch=0}}
+2025-04-15 11:39:47,008 INFO [xxl-job, JobThread-4-1744688240744] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 42] StockPullJobHandler poll records: 1
+2025-04-15 11:40:05,116 INFO [xxl-job, JobThread-4-1744688240744] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 46] StockPullJobHandler poll record: {
+"asc":"0",
+"limit":"100",
+"market":"hs_a",
+"page":"1",
+"sort":"vlaue"
+}
+2025-04-15 11:44:39,691 INFO [kafka-coordinator-heartbeat-thread | stock-monitor-group] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1060] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Member consumer-stock-monitor-group-2-64178525-51a6-442f-bd75-ba060ef815c6 sending LeaveGroup request to coordinator 192.168.124.41:9092 (id: 2147483647 rack: null) due to consumer poll timeout has expired.
+2025-04-15 11:44:39,700 INFO [kafka-coordinator-heartbeat-thread | stock-monitor-group] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 972] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Resetting generation due to: consumer pro-actively leaving the group
+2025-04-15 11:44:39,707 INFO [kafka-coordinator-heartbeat-thread | stock-monitor-group] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-2, groupId=stock-monitor-group] Request joining group due to: consumer pro-actively leaving the group
+2025-04-15 11:49:35,744 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 55] Starting StockMonitorApplication using Java 1.8.0_411 on 192.168.124.41 with PID 97342 (/Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor/target/classes started by huangkaiwen in /Users/huangkaiwen/Desktop/Study/Java_home/StockMonitor)
+2025-04-15 11:49:35,746 INFO [main] c.s.StockMonitorApplication [SpringApplication.java : 638] The following 1 profile is active: "dev"
+2025-04-15 11:49:36,677 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-15 11:49:36,679 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-15 11:49:36,692 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+2025-04-15 11:49:37,229 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 108] Tomcat initialized with port(s): 8080 (http)
+2025-04-15 11:49:37,235 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:49:37,236 INFO [main] o.a.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2025-04-15 11:49:37,236 INFO [main] o.a.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.83]
+2025-04-15 11:49:37,340 INFO [main] o.a.c.c.C.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2025-04-15 11:49:37,341 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java : 292] Root WebApplicationContext: initialization completed in 1025 ms
+2025-04-15 11:49:37,395 INFO [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure [DruidDataSourceAutoConfigure.java : 55] Init DruidDataSource
+2025-04-15 11:49:37,514 INFO [main] c.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 1009] {dataSource-1} inited
+2025-04-15 11:49:38,666 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockKlineJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@6c25123e[class com.stockmonitor.jobhandler.stock.StockKlineJobHandler#execute]
+2025-04-15 11:49:38,667 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:StockPriceJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@72641613[class com.stockmonitor.jobhandler.stock.StockPriceJobHandler#execute]
+2025-04-15 11:49:38,668 INFO [main] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 183] >>>>>>>>>>> xxl-job register jobhandler success, name:stockRankingJobHandler, jobHandler:com.xxl.job.core.handler.impl.MethodJobHandler@4d71ec5b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:49:38,701 INFO [main] o.a.coyote.http11.Http11NioProtocol [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-8080"]
+2025-04-15 11:49:38,719 INFO [main] o.s.b.w.e.tomcat.TomcatWebServer [TomcatWebServer.java : 220] Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-15 11:49:38,731 INFO [main] c.s.StockMonitorApplication [StartupInfoLogger.java : 61] Started StockMonitorApplication in 3.294 seconds (JVM running for 4.294)
+2025-04-15 11:49:38,762 INFO [Thread-5] com.xxl.job.core.server.EmbedServer [EmbedServer.java : 82] >>>>>>>>>>> xxl-job remoting server start success, nettype = class com.xxl.job.core.server.EmbedServer, port = 9998
+2025-04-15 11:50:05,591 INFO [xxl-job, EmbedServer bizThreadPool-314300831] c.x.job.core.executor.XxlJobExecutor [XxlJobExecutor.java : 246] >>>>>>>>>>> xxl-job regist JobThread success, jobId:4, handler:com.xxl.job.core.handler.impl.MethodJobHandler@4d71ec5b[class com.stockmonitor.jobhandler.stock.StockRankingPullJobHandler#stockRankingJobHandler]
+2025-04-15 11:50:08,667 INFO [xxl-job, JobThread-4-1744689005591] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 34] StockRankingJobHandler start
+2025-04-15 11:50:10,239 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.consumer.ConsumerConfig [AbstractConfig.java : 376] ConsumerConfig values: 
+	allow.auto.create.topics = true
+	auto.commit.interval.ms = 5000
+	auto.offset.reset = earliest
+	bootstrap.servers = [localhost:9092]
+	check.crcs = true
+	client.dns.lookup = use_all_dns_ips
+	client.id = consumer-stock-monitor-group-1
+	client.rack = 
+	connections.max.idle.ms = 540000
+	default.api.timeout.ms = 60000
+	enable.auto.commit = false
+	exclude.internal.topics = true
+	fetch.max.bytes = 52428800
+	fetch.max.wait.ms = 500
+	fetch.min.bytes = 1
+	group.id = stock-monitor-group
+	group.instance.id = null
+	heartbeat.interval.ms = 3000
+	interceptor.classes = []
+	internal.leave.group.on.close = true
+	internal.throw.on.fetch.stable.offset.unsupported = false
+	isolation.level = read_uncommitted
+	key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+	max.partition.fetch.bytes = 1048576
+	max.poll.interval.ms = 300000
+	max.poll.records = 500
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	session.timeout.ms = 45000
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.2
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+	value.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+
+2025-04-15 11:50:14,792 INFO [xxl-job, JobThread-4-1744689005591] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 119] Kafka version: 3.1.2
+2025-04-15 11:50:14,801 INFO [xxl-job, JobThread-4-1744689005591] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 120] Kafka commitId: f8c67dc3ae0a3265
+2025-04-15 11:50:14,810 INFO [xxl-job, JobThread-4-1744689005591] o.a.kafka.common.utils.AppInfoParser [AppInfoParser.java : 121] Kafka startTimeMs: 1744689014707
+2025-04-15 11:50:17,487 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.clients.consumer.KafkaConsumer [KafkaConsumer.java : 966] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Subscribed to topic(s): stock_ranking
+2025-04-15 11:50:44,659 INFO [xxl-job, JobThread-4-1744689005591] org.apache.kafka.clients.Metadata [Metadata.java : 402] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting the last seen epoch of partition stock_ranking-0 to 0 since the associated topicId changed from null to ZaVrvsSFSUy_nu3AO6PTCg
+2025-04-15 11:50:44,805 INFO [xxl-job, JobThread-4-1744689005591] org.apache.kafka.clients.Metadata [Metadata.java : 287] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Cluster ID: BBvet666TMOiqoOFYFLx-w
+2025-04-15 11:50:44,844 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 853] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Discovered group coordinator 192.168.124.41:9092 (id: 2147483647 rack: null)
+2025-04-15 11:50:44,895 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:50:45,435 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: need to re-join with the given member-id
+2025-04-15 11:50:45,449 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 535] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] (Re-)joining group
+2025-04-15 11:50:45,479 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 595] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully joined group with generation Generation{generationId=13, memberId='consumer-stock-monitor-group-1-01e756ae-9738-482f-b70e-197b2a776677', protocol='range'}
+2025-04-15 11:50:45,585 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 659] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Finished assignment for group at generation 13: {consumer-stock-monitor-group-1-01e756ae-9738-482f-b70e-197b2a776677=Assignment(partitions=[stock_ranking-0])}
+2025-04-15 11:50:45,716 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 761] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Successfully synced group in generation Generation{generationId=13, memberId='consumer-stock-monitor-group-1-01e756ae-9738-482f-b70e-197b2a776677', protocol='range'}
+2025-04-15 11:50:45,733 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 280] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Notifying assignor about the new Assignment(partitions=[stock_ranking-0])
+2025-04-15 11:50:45,849 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 292] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Adding newly assigned partitions: stock_ranking-0
+2025-04-15 11:50:46,240 INFO [xxl-job, JobThread-4-1744689005591] o.a.k.c.c.i.ConsumerCoordinator [ConsumerCoordinator.java : 851] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Setting offset for partition stock_ranking-0 to the committed offset FetchPosition{offset=12, offsetEpoch=Optional[0], currentLeader=LeaderAndEpoch{leader=Optional[192.168.124.41:9092 (id: 0 rack: null)], epoch=0}}
+2025-04-15 11:50:49,535 INFO [xxl-job, JobThread-4-1744689005591] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 42] StockPullJobHandler poll records: 1
+2025-04-15 11:50:54,866 INFO [xxl-job, JobThread-4-1744689005591] c.s.j.s.StockRankingPullJobHandler [StockRankingPullJobHandler.java : 46] StockPullJobHandler poll record: {
+"asc":"0",
+"limit":"100",
+"market":"hs_a",
+"page":"1",
+"sort":"vlaue"
+}
+2025-04-15 11:52:27,662 INFO [xxl-job, JobThread-4-1744689005591] c.s.service.stock.StockPullService [StockPullService.java : 152] 股票排行榜 API 响应结果：{"data":{"list":[{"volume":"15359475","symbol":"sz001335","high":"65.900","update_time":1744687800,"low":"48.730","price":"58.100","change":"45.3","name":"N信凯","preclose":"12.800","changeRate":"353.90625","value":"838023891.440","open":"51.000"},{"volume":"7286866","symbol":"bj839273","high":"62.620","update_time":1744688099,"low":"48.330","price":"60.660","change":"12.35","name":"一致魔芋","preclose":"48.310","changeRate":"25.564065","value":"401770088.310","open":"48.800"},{"volume":"11084949","symbol":"sz300530","high":"25.900","update_time":1744687800,"low":"21.740","price":"25.900","change":"4.32","name":"领湃科技","preclose":"21.580","changeRate":"20.018536","value":"274467756.100","open":"22.010"},{"volume":"3180200","symbol":"sz301108","high":"29.330","update_time":1744687800,"low":"24.090","price":"29.330","change":"4.89","name":"洁雅股份","preclose":"24.440","changeRate":"20.008183","value":"87794876.000","open":"24.640"},{"volume":"26246950","symbol":"sz300997","high":"17.950","update_time":1744687800,"low":"14.670","price":"17.950","change":"2.99","name":"欢乐家","preclose":"14.960","changeRate":"19.986631","value":"439031904.180","open":"14.850"},{"volume":"34320960","symbol":"sz300703","high":"16.100","update_time":1744687800,"low":"13.950","price":"16.100","change":"2.68","name":"创源股份","preclose":"13.420","changeRate":"19.970194","value":"540330142.600","open":"14.080"},{"volume":"12255616","symbol":"bj837023","high":"25.280","update_time":1744688099,"low":"21.580","price":"24.170","change":"3.57","name":"芭薇股份","preclose":"20.600","changeRate":"17.330097","value":"284515017.380","open":"21.990"},{"volume":"77359654","symbol":"sz301558","high":"10.040","update_time":1744687800,"low":"7.850","price":"9.700","change":"1.33","name":"三态股份","preclose":"8.370","changeRate":"15.890084","value":"677012394.940","open":"8.390"},{"volume":"29654965","symbol":"sz300994","high":"16.280","update_time":1744687800,"low":"13.400","price":"15.700","change":"2.13","name":"久祺股份","preclose":"13.570","changeRate":"15.696389","value":"442734893.770","open":"13.880"},{"volume":"26411978","symbol":"sz300452","high":"13.280","update_time":1744687800,"low":"11.260","price":"13.090","change":"1.74","name":"山河药辅","preclose":"11.350","changeRate":"15.330396","value":"332929244.700","open":"11.310"},{"volume":"103475404","symbol":"sz300350","high":"6.910","update_time":1744687800,"low":"5.870","price":"6.770","change":"0.81","name":"华鹏飞","preclose":"5.960","changeRate":"13.590604","value":"659837461.100","open":"6.080"},{"volume":"17726683","symbol":"sz301011","high":"30.600","update_time":1744687800,"low":"28.510","price":"28.950","change":"3.45","name":"华立科技","preclose":"25.500","changeRate":"13.529412","value":"528098781.230","open":"30.600"},{"volume":"15835323","symbol":"bj833284","high":"28.000","update_time":1744688099,"low":"23.390","price":"25.610","change":"2.8","name":"灵鸽科技","preclose":"22.810","changeRate":"12.275318","value":"406066594.580","open":"23.600"},{"volume":"5489285","symbol":"bj833075","high":"35.000","update_time":1744688099,"low":"28.500","price":"31.100","change":"3.4","name":"柏星龙","preclose":"27.700","changeRate":"12.274368","value":"176545885.330","open":"28.500"},{"volume":"7123469","symbol":"bj920029","high":"96.850","update_time":1744688099,"low":"87.500","price":"96.800","change":"9.65","name":"开发科技","preclose":"87.150","changeRate":"11.072863","value":"655267255.640","open":"88.500"},{"volume":"9571170","symbol":"sh688089","high":"26.440","update_time":1744687800,"low":"24.990","price":"25.820","change":"2.47","name":"嘉必优","preclose":"23.350","changeRate":"10.578158","value":"245237776.000","open":"25.950"},{"volume":"10333067","symbol":"sh601279","high":"3.690","update_time":1744687800,"low":"3.350","price":"3.690","change":"0.34","name":"英利汽车","preclose":"3.350","changeRate":"10.149254","value":"37328348.000","open":"3.350"},{"volume":"21954930","symbol":"sz002793","high":"4.240","update_time":1744687800,"low":"4.050","price":"4.240","change":"0.39","name":"罗欣药业","preclose":"3.850","changeRate":"10.12987","value":"92196548.200","open":"4.090"},{"volume":"9485800","symbol":"sh603335","high":"4.350","update_time":1744687800,"low":"4.350","price":"4.350","change":"0.4","name":"迪生力","preclose":"3.950","changeRate":"10.126582","value":"41263230.000","open":"4.350"},{"volume":"18437730","symbol":"sz002712","high":"5.560","update_time":1744687800,"low":"5.160","price":"5.560","change":"0.51","name":"思美传媒","preclose":"5.050","changeRate":"10.09901","value":"100642397.570","open":"5.250"},{"volume":"43259930","symbol":"sz002121","high":"4.480","update_time":1744687800,"low":"4.350","price":"4.480","change":"0.41","name":"科陆电子","preclose":"4.070","changeRate":"10.07371","value":"192997788.400","open":"4.410"},{"volume":"88865247","symbol":"sz000600","high":"6.560","update_time":1744687800,"low":"6.180","price":"6.560","change":"0.6","name":"建投能源","preclose":"5.960","changeRate":"10.067114","value":"568982963.440","open":"6.230"},{"volume":"52476505","symbol":"sz002279","high":"6.680","update_time":1744687800,"low":"6.050","price":"6.680","change":"0.61","name":"久其软件","preclose":"6.070","changeRate":"10.049423","value":"335692750.800","open":"6.070"},{"volume":"4680247","symbol":"sh688573","high":"18.860","update_time":1744687800,"low":"16.350","price":"18.080","change":"1.65","name":"信宇人","preclose":"16.430","changeRate":"10.042605","value":"83510044.000","open":"16.540"},{"volume":"57186346","symbol":"sh603456","high":"14.030","update_time":1744687800,"low":"13.410","price":"14.030","change":"1.28","name":"九洲药业","preclose":"12.750","changeRate":"10.039216","value":"795915348.000","open":"13.420"},{"volume":"64746008","symbol":"sh603128","high":"6.580","update_time":1744687800,"low":"5.850","price":"6.580","change":"0.6","name":"华贸物流","preclose":"5.980","changeRate":"10.033445","value":"406265133.000","open":"5.960"},{"volume":"85264102","symbol":"sh600249","high":"6.690","update_time":1744687800,"low":"6.120","price":"6.690","change":"0.61","name":"两面针","preclose":"6.080","changeRate":"10.032895","value":"547761982.000","open":"6.620"},{"volume":"16867102","symbol":"sh600206","high":"17.550","update_time":1744687800,"low":"17.550","price":"17.550","change":"1.6","name":"有研新材","preclose":"15.950","changeRate":"10.031348","value":"296017640.000","open":"17.550"},{"volume":"7893400","symbol":"sh603687","high":"7.130","update_time":1744687800,"low":"6.870","price":"7.130","change":"0.65","name":"大胜达","preclose":"6.480","changeRate":"10.030864","value":"56059865.000","open":"6.870"},{"volume":"32966662","symbol":"sz003000","high":"14.480","update_time":1744687800,"low":"13.050","price":"14.480","change":"1.32","name":"劲仔食品","preclose":"13.160","changeRate":"10.030395","value":"467089915.170","open":"13.150"},{"volume":"60687291","symbol":"sh600439","high":"3.620","update_time":1744687800,"low":"3.240","price":"3.620","change":"0.33","name":"瑞贝卡","preclose":"3.290","changeRate":"10.030395","value":"210621628.000","open":"3.290"},{"volume":"25388521","symbol":"sh601083","high":"11.520","update_time":1744687800,"low":"11.200","price":"11.520","change":"1.05","name":"锦江航运","preclose":"10.470","changeRate":"10.028653","value":"289750432.000","open":"11.200"},{"volume":"6854590","symbol":"sh603955","high":"19.860","update_time":1744687800,"low":"18.050","price":"19.860","change":"1.81","name":"大千生态","preclose":"18.050","changeRate":"10.027701","value":"132431334.000","open":"18.060"},{"volume":"48406273","symbol":"sz002562","high":"4.280","update_time":1744687800,"low":"3.920","price":"4.280","change":"0.39","name":"兄弟科技","preclose":"3.890","changeRate":"10.025707","value":"202832101.400","open":"3.920"},{"volume":"9176800","symbol":"sz002882","high":"17.230","update_time":1744687800,"low":"15.670","price":"17.230","change":"1.57","name":"金龙羽","preclose":"15.660","changeRate":"10.025543","value":"154403454.000","open":"15.760"},{"volume":"2036545","symbol":"sz001209","high":"17.230","update_time":1744687800,"low":"17.230","price":"17.230","change":"1.57","name":"洪兴股份","preclose":"15.660","changeRate":"10.025543","value":"35089670.350","open":"17.230"},{"volume":"1079500","symbol":"sz002564","high":"4.390","update_time":1744687800,"low":"4.390","price":"4.390","change":"0.4","name":"天沃科技","preclose":"3.990","changeRate":"10.025063","value":"4739005.000","open":"4.390"},{"volume":"17054044","symbol":"sh603696","high":"9.330","update_time":1744687800,"low":"8.410","price":"9.330","change":"0.85","name":"安记食品","preclose":"8.480","changeRate":"10.023585","value":"153711018.000","open":"8.480"},{"volume":"45293383","symbol":"sh601086","high":"10.210","update_time":1744687800,"low":"9.600","price":"10.210","change":"0.93","name":"国芳集团","preclose":"9.280","changeRate":"10.021552","value":"457306846.000","open":"9.800"},{"volume":"37620210","symbol":"sh600128","high":"10.210","update_time":1744687800,"low":"9.240","price":"10.210","change":"0.93","name":"苏豪弘业","preclose":"9.280","changeRate":"10.021552","value":"371394365.000","open":"9.280"},{"volume":"5209200","symbol":"sh603090","high":"22.640","update_time":1744687800,"low":"20.550","price":"22.640","change":"2.06","name":"宏盛股份","preclose":"20.580","changeRate":"10.009718","value":"114434644.000","open":"20.940"},{"volume":"12520877","symbol":"sh603607","high":"18.250","update_time":1744687800,"low":"17.990","price":"18.250","change":"1.66","name":"京华激光","preclose":"16.590","changeRate":"10.006028","value":"228437454.000","open":"18.250"},{"volume":"13121300","symbol":"sz002098","high":"8.140","update_time":1744687800,"low":"7.350","price":"8.140","change":"0.74","name":"浔兴股份","preclose":"7.400","changeRate":"10","value":"104452502.800","open":"7.530"},{"volume":"2364741","symbol":"sz001395","high":"42.710","update_time":1744687800,"low":"38.630","price":"42.710","change":"3.88","name":"亚联机械","preclose":"38.830","changeRate":"9.992274","value":"98927585.470","open":"38.640"},{"volume":"9164602","symbol":"sz003020","high":"20.920","update_time":1744687800,"low":"19.640","price":"20.920","change":"1.9","name":"立方制药","preclose":"19.020","changeRate":"9.989485","value":"190110792.050","open":"20.920"},{"volume":"403500","symbol":"sh603082","high":"38.210","update_time":1744687800,"low":"38.210","price":"38.210","change":"3.47","name":"北自科技","preclose":"34.740","changeRate":"9.988486","value":"15417735.000","open":"38.210"},{"volume":"34648296","symbol":"sh600735","high":"5.950","update_time":1744687800,"low":"5.320","price":"5.950","change":"0.54","name":"新华锦","preclose":"5.410","changeRate":"9.981516","value":"199985950.000","open":"5.420"},{"volume":"1670589","symbol":"sh605188","high":"10.360","update_time":1744687800,"low":"10.360","price":"10.360","change":"0.94","name":"国光连锁","preclose":"9.420","changeRate":"9.978769","value":"17307302.000","open":"10.360"},{"volume":"48973936","symbol":"sh600644","high":"8.490","update_time":1744687800,"low":"7.860","price":"8.490","change":"0.77","name":"乐山电力","preclose":"7.720","changeRate":"9.974093","value":"396924723.000","open":"7.990"},{"volume":"86894397","symbol":"sz000505","high":"7.940","update_time":1744687800,"low":"7.010","price":"7.940","change":"0.72","name":"京粮控股","preclose":"7.220","changeRate":"9.972299","value":"650559033.570","open":"7.210"},{"volume":"13724600","symbol":"sz000004","high":"10.260","update_time":1744687800,"low":"9.350","price":"10.260","change":"0.93","name":"国华网安","preclose":"9.330","changeRate":"9.967846","value":"139575130.940","open":"9.350"},{"volume":"146706216","symbol":"sz002717","high":"3.200","update_time":1744687800,"low":"2.890","price":"3.200","change":"0.29","name":"岭南股份","preclose":"2.910","changeRate":"9.965636","value":"458632318.200","open":"2.900"},{"volume":"271711506","symbol":"sz002165","high":"8.950","update_time":1744687800,"low":"7.800","price":"8.950","change":"0.81","name":"红 宝 丽","preclose":"8.140","changeRate":"9.95086","value":"2361490469.660","open":"7.800"},{"volume":"11299600","symbol":"sz002719","high":"8.180","update_time":1744687800,"low":"7.400","price":"8.180","change":"0.74","name":"麦趣尔","preclose":"7.440","changeRate":"9.946237","value":"90208721.000","open":"7.420"},{"volume":"19965302","symbol":"sz000510","high":"5.090","update_time":1744687800,"low":"5.090","price":"5.090","change":"0.46","name":"新金路","preclose":"4.630","changeRate":"9.935205","value":"101623387.180","open":"5.090"},{"volume":"13879000","symbol":"sh600421","high":"6.420","update_time":1744687800,"low":"5.830","price":"6.420","change":"0.58","name":"华嵘控股","preclose":"5.840","changeRate":"9.931507","value":"88424909.000","open":"5.840"},{"volume":"21151466","symbol":"sh688602","high":"7.850","update_time":1744687800,"low":"7.010","price":"7.520","change":"0.65","name":"康鹏科技","preclose":"6.870","changeRate":"9.461426","value":"159409335.000","open":"7.160"},{"volume":"10561217","symbol":"sz300478","high":"13.330","update_time":1744687800,"low":"11.250","price":"12.540","change":"1.08","name":"杭州高新","preclose":"11.460","changeRate":"9.424084","value":"129960249.000","open":"11.580"},{"volume":"5895432","symbol":"sz301209","high":"55.990","update_time":1744687800,"low":"48.000","price":"52.540","change":"4.25","name":"联合化学","preclose":"48.290","changeRate":"8.800994","value":"306233573.300","open":"50.000"},{"volume":"16001950","symbol":"sz300599","high":"7.810","update_time":1744687800,"low":"6.540","price":"7.070","change":"0.56","name":"雄塑科技","preclose":"6.510","changeRate":"8.602151","value":"115468271.500","open":"6.650"},{"volume":"5256110","symbol":"sz301055","high":"16.150","update_time":1744687800,"low":"14.590","price":"15.830","change":"1.24","name":"张小泉","preclose":"14.590","changeRate":"8.498972","value":"81142234.900","open":"14.590"},{"volume":"13598000","symbol":"sz002848","high":"5.830","update_time":1744687800,"low":"5.300","price":"5.750","change":"0.45","name":"高斯贝尔","preclose":"5.300","changeRate":"8.490566","value":"77343110.000","open":"5.380"},{"volume":"1273460","symbol":"bj832982","high":"412.000","update_time":1744688099,"low":"377.100","price":"409.950","change":"31.95","name":"锦波生物","preclose":"378.000","changeRate":"8.452381","value":"503369429.320","open":"382.910"},{"volume":"3971424","symbol":"bj830779","high":"70.130","update_time":1744688099,"low":"60.910","price":"66.000","change":"5.12","name":"武汉蓝电","preclose":"60.880","changeRate":"8.409987","value":"261686759.060","open":"60.970"},{"volume":"1326672","symbol":"sh688229","high":"51.300","update_time":1744687800,"low":"44.080","price":"49.500","change":"3.79","name":"博睿数据","preclose":"45.710","changeRate":"8.291402","value":"62278906.000","open":"45.710"},{"volume":"4202920","symbol":"sz301110","high":"51.000","update_time":1744687800,"low":"46.150","price":"50.590","change":"3.87","name":"青木科技","preclose":"46.720","changeRate":"8.28339","value":"202511862.200","open":"46.150"},{"volume":"5874109","symbol":"bj831627","high":"30.500","update_time":1744688099,"low":"26.750","price":"28.590","change":"2.18","name":"力王股份","preclose":"26.410","changeRate":"8.254449","value":"168472169.030","open":"26.880"},{"volume":"18915750","symbol":"sh603630","high":"20.110","update_time":1744687800,"low":"17.800","price":"19.780","change":"1.5","name":"拉芳家化","preclose":"18.280","changeRate":"8.205689","value":"359526847.000","open":"18.230"},{"volume":"14191423","symbol":"sz300220","high":"17.000","update_time":1744687800,"low":"15.300","price":"15.580","change":"1.18","name":"金运激光","preclose":"14.400","changeRate":"8.194444","value":"231628307.210","open":"15.300"},{"volume":"29232219","symbol":"sz300345","high":"6.130","update_time":1744687800,"low":"5.600","price":"5.910","change":"0.44","name":"华民股份","preclose":"5.470","changeRate":"8.043876","value":"173076819.090","open":"5.640"},{"volume":"28364856","symbol":"sz300783","high":"33.000","update_time":1744687800,"low":"29.610","price":"32.380","change":"2.25","name":"三只松鼠","preclose":"30.130","changeRate":"7.46764","value":"885937776.060","open":"30.100"},{"volume":"4023105","symbol":"bj832735","high":"52.000","update_time":1744688099,"low":"45.850","price":"50.530","change":"3.39","name":"德源药业","preclose":"47.140","changeRate":"7.191345","value":"195818332.270","open":"47.450"},{"volume":"14995976","symbol":"sz300464","high":"4.890","update_time":1744687800,"low":"4.440","price":"4.810","change":"0.32","name":"星徽股份","preclose":"4.490","changeRate":"7.126949","value":"69658357.000","open":"4.470"},{"volume":"7218464","symbol":"sz300619","high":"27.800","update_time":1744687800,"low":"23.820","price":"25.510","change":"1.69","name":"金银河","preclose":"23.820","changeRate":"7.094878","value":"188024965.310","open":"23.820"},{"volume":"4728671","symbol":"sh688778","high":"47.990","update_time":1744687800,"low":"43.820","price":"47.100","change":"3.12","name":"厦钨新能","preclose":"43.980","changeRate":"7.094134","value":"218755206.000","open":"44.040"},{"volume":"57830898","symbol":"sz002693","high":"10.040","update_time":1744687800,"low":"9.070","price":"9.870","change":"0.64","name":"双成药业","preclose":"9.230","changeRate":"6.933911","value":"560141144.150","open":"9.140"},{"volume":"69027180","symbol":"sz002103","high":"10.080","update_time":1744687800,"low":"9.400","price":"9.780","change":"0.62","name":"广博股份","preclose":"9.160","changeRate":"6.768559","value":"683655502.200","open":"9.500"},{"volume":"46388912","symbol":"sz301256","high":"15.190","update_time":1744687800,"low":"13.420","price":"14.430","change":"0.91","name":"华融化学","preclose":"13.520","changeRate":"6.730769","value":"669193624.790","open":"13.480"},{"volume":"2345082","symbol":"sh688068","high":"127.400","update_time":1744687800,"low":"112.760","price":"122.300","change":"7.7","name":"热景生物","preclose":"114.600","changeRate":"6.719023","value":"283601581.000","open":"112.760"},{"volume":"21824300","symbol":"sz300376","high":"3.500","update_time":1744687800,"low":"3.130","price":"3.360","change":"0.21","name":"ST易事特","preclose":"3.150","changeRate":"6.666667","value":"72912844.000","open":"3.150"},{"volume":"3151501","symbol":"sz301371","high":"35.960","update_time":1744687800,"low":"32.340","price":"34.820","change":"2.16","name":"敷尔佳","preclose":"32.660","changeRate":"6.613595","value":"108237301.780","open":"32.660"},{"volume":"9030148","symbol":"bj871970","high":"9.870","update_time":1744688099,"low":"8.930","price":"9.520","change":"0.59","name":"大禹生物","preclose":"8.930","changeRate":"6.606943","value":"85017008.770","open":"9.010"},{"volume":"10237500","symbol":"sz300729","high":"13.770","update_time":1744687800,"low":"12.870","price":"13.740","change":"0.85","name":"乐歌股份","preclose":"12.890","changeRate":"6.594259","value":"135545515.080","open":"13.000"},{"volume":"1605640","symbol":"sz301606","high":"37.510","update_time":1744687800,"low":"34.310","price":"37.100","change":"2.29","name":"绿联科技","preclose":"34.810","changeRate":"6.578569","value":"56978125.000","open":"34.820"},{"volume":"3603259","symbol":"bj837174","high":"15.990","update_time":1744688099,"low":"14.300","price":"15.310","change":"0.94","name":"宏裕包材","preclose":"14.370","changeRate":"6.541406","value":"54599819.190","open":"14.390"},{"volume":"2377664","symbol":"sz300972","high":"116.600","update_time":1744687800,"low":"108.640","price":"115.370","change":"7.07","name":"万辰集团","preclose":"108.300","changeRate":"6.528163","value":"268431177.950","open":"108.640"},{"volume":"7603938","symbol":"bj831726","high":"26.750","update_time":1744688099,"low":"23.840","price":"25.950","change":"1.59","name":"朱老六","preclose":"24.360","changeRate":"6.527094","value":"194379454.680","open":"24.260"},{"volume":"10197100","symbol":"sh603637","high":"9.900","update_time":1744687800,"low":"8.940","price":"9.580","change":"0.58","name":"镇海股份","preclose":"9.000","changeRate":"6.444444","value":"98529340.000","open":"8.940"},{"volume":"12136800","symbol":"sz300175","high":"5.050","update_time":1744687800,"low":"4.650","price":"4.990","change":"0.3","name":"ST朗源","preclose":"4.690","changeRate":"6.396588","value":"59112141.000","open":"4.720"},{"volume":"4268161","symbol":"sh603983","high":"43.490","update_time":1744687800,"low":"39.640","price":"42.870","change":"2.57","name":"丸美生物","preclose":"40.300","changeRate":"6.377171","value":"178494436.000","open":"39.900"},{"volume":"15496357","symbol":"sz300927","high":"27.310","update_time":1744687800,"low":"25.020","price":"26.700","change":"1.6","name":"江天化学","preclose":"25.100","changeRate":"6.374502","value":"407860776.280","open":"25.390"},{"volume":"24005579","symbol":"sh600373","high":"11.770","update_time":1744687800,"low":"11.020","price":"11.730","change":"0.69","name":"中文传媒","preclose":"11.040","changeRate":"6.25","value":"274089985.000","open":"11.030"},{"volume":"1575993","symbol":"bj920106","high":"114.660","update_time":1744688099,"low":"103.180","price":"112.810","change":"6.61","name":"林泰新材","preclose":"106.200","changeRate":"6.224105","value":"171797420.240","open":"109.150"},{"volume":"111869624","symbol":"sz000917","high":"8.040","update_time":1744687800,"low":"7.710","price":"7.760","change":"0.45","name":"电广传媒","preclose":"7.310","changeRate":"6.155951","value":"885217215.480","open":"8.040"},{"volume":"3549861","symbol":"sh603713","high":"50.960","update_time":1744687800,"low":"48.860","price":"50.150","change":"2.87","name":"密尔克卫","preclose":"47.280","changeRate":"6.07022","value":"176630864.000","open":"49.380"},{"volume":"17652795","symbol":"sz001234","high":"23.230","update_time":1744687800,"low":"21.890","price":"22.390","change":"1.27","name":"泰慕士","preclose":"21.120","changeRate":"6.013258","value":"403973908.710","open":"22.890"},{"volume":"4273361","symbol":"sz001256","high":"30.180","update_time":1744687800,"low":"27.880","price":"29.770","change":"1.66","name":"炜冈科技","preclose":"28.110","changeRate":"5.905372","value":"124678984.930","open":"28.110"},{"volume":"17330235","symbol":"bj836826","high":"15.380","update_time":1744688099,"low":"13.580","price":"14.840","change":"0.82","name":"盖世食品","preclose":"14.020","changeRate":"5.848787","value":"253690056.280","open":"14.030"},{"volume":"12669428","symbol":"sz002294","high":"36.730","update_time":1744687800,"low":"34.280","price":"36.190","change":"1.98","name":"信立泰","preclose":"34.210","changeRate":"5.787781","value":"456093397.130","open":"34.490"},{"volume":"1302188","symbol":"bj920002","high":"230.000","update_time":1744688099,"low":"207.900","price":"224.110","change":"12.11","name":"万达轴承","preclose":"212.000","changeRate":"5.712264","value":"286422708.650","open":"209.990"}]},"msg":"成功","success":true,"code":200,"taskNo":"371138440213301271225807"}
+2025-04-15 11:55:47,047 INFO [kafka-coordinator-heartbeat-thread | stock-monitor-group] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1060] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Member consumer-stock-monitor-group-1-01e756ae-9738-482f-b70e-197b2a776677 sending LeaveGroup request to coordinator 192.168.124.41:9092 (id: 2147483647 rack: null) due to consumer poll timeout has expired.
+2025-04-15 11:55:47,055 INFO [kafka-coordinator-heartbeat-thread | stock-monitor-group] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 972] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Resetting generation due to: consumer pro-actively leaving the group
+2025-04-15 11:55:47,056 INFO [kafka-coordinator-heartbeat-thread | stock-monitor-group] o.a.k.c.c.i.ConsumerCoordinator [AbstractCoordinator.java : 1000] [Consumer clientId=consumer-stock-monitor-group-1, groupId=stock-monitor-group] Request joining group due to: consumer pro-actively leaving the group

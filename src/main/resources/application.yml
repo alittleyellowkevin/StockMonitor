@@ -57,14 +57,18 @@ xxl:
       addresses: http://localhost:8090/xxl-job-admin
     executor:
       appname: stock-monitor-executor
-      ip: 
-      port: 9999
-      logpath: /data/applogs/xxl-job/jobhandler
+      ip:
+      port: 9998
+      logpath: ./data/applogs/xxl-job/jobhandler
       logretentiondays: 30
-    accessToken: default_token
+    accessToken: ${XXL_JOB_ACCESS_TOKEN:}
 
 # 腾讯股票API配置
 tencent:
   api:
     secretId: ${API_SECRET_ID:}  # 从环境变量获取，如果没有则使用默认值
     secretKey: ${API_SECRET_KEY:}  # 从环境变量获取，如果没有则使用默认值
+    urls:
+      stock-ranking: ${TENCENT_STOCK_RANKING_URL:} # 股票排行榜URL  
+      stock-price: ${TENCENT_STOCK_PRICE_URL:} # 股票报价URL
+      stock-kline: ${TENCENT_STOCK_KLINE_URL:} # 股票K线URL

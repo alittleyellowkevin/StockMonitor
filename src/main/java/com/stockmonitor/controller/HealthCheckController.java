@@ -9,7 +9,7 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.xxl.job.core.executor.XxlJobExecutor;
+import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/api/health")
 public class HealthCheckController {
-    
+
     private static final Logger logger = LoggerFactory.getLogger(HealthCheckController.class);
 
     @Autowired
@@ -53,7 +53,7 @@ public class HealthCheckController {
             components.put("mysql", false);
             details.put("mysql", "连接失败: " + e.getMessage());
         }
-        
+
         // 检查Redis连接
         try {
             redisTemplate.opsForValue().get("health_check_test");
@@ -78,8 +78,8 @@ public class HealthCheckController {
 
         // 检查Kafka连接
         try {
-            ListenableFuture<SendResult<String, String>> future = 
-                kafkaTemplate.send(HEALTH_CHECK_TOPIC, "health_check", "test");
+            ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send(HEALTH_CHECK_TOPIC, "health_check",
+                    "test");
             future.get(5, TimeUnit.SECONDS); // 等待最多5秒
             components.put("kafka", true);
             details.put("kafka", "连接正常");
@@ -102,4 +102,4 @@ public class HealthCheckController {
     public String ping() {
         return "pong";
     }
-} 
+}

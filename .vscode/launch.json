@@ -1,14 +1,29 @@
 {
+    "version": "0.2.0",
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-StockMonitorApplication<stock-monitor>",
+            "name": "PropertiesUtil",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
+            "mainClass": "com.stockmonitor.util.PropertiesUtil",
+            "projectName": "stock-monitor"
+        },
+        {
+            "type": "java",
+            "name": "Debug Spring Boot Application",
+            "request": "launch",
             "mainClass": "com.stockmonitor.StockMonitorApplication",
             "projectName": "stock-monitor",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "dev"
+            }
+        },
+        {
+            "type": "java",
+            "name": "Attach to Running Application",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 5005
         }
     ]
 }
